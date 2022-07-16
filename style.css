@@ -2,7 +2,34 @@ body {
     color: white;
     background-color: darkslateblue;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 14px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vmin;
+    gap: 40px;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+button {
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    background-image: linear-gradient(#4696d3, #0972f1);
+    border: 1px solid #0077cc;
+    border-radius: 4px;
+    padding: 5px 15px;
+}
+
+button:hover {
+    background-image: linear-gradient(#4bacf7, #0972f1);
 }
 
 .container {
