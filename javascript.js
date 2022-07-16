@@ -18,12 +18,10 @@ function createGrid(size) {
 
 function addHoverEvent(element) {
     element.addEventListener('mouseover', (event) => {
-        if (!isMouseDown) 
+        if (event.which != 1) 
             return;
         event.target.style.backgroundColor = 'red';
     });
 }
 
-document.addEventListener('mousedown', () => isMouseDown = true);
-document.addEventListener('mouseup', () => isMouseDown = false);
 createGrid(16);
