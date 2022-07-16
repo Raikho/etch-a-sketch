@@ -27,7 +27,8 @@ function eraseGrid() {
 }
 
 function changeSize() {
-    const size = prompt('Enter new size', 10);
+    const size = Number(prompt('Enter new size (max 100)', 10));
+    if (size === NaN || size > 100 || size < 1) return;
     eraseGrid();
     createGrid(size);
 }
