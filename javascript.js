@@ -1,6 +1,5 @@
 const container = document.querySelector('div.container')
 const tiles = [];
-let isMouseDown = false;
 
 function createGrid(size) {
     for (let i = 0; i < size; i++) {
@@ -18,13 +17,17 @@ function createGrid(size) {
 
 function addHoverEvent(element) {
     element.addEventListener('mouseover', (event) => {
-        if (event.which != 1) // If left mouse is down
+        if (event.which != 1) // if left mouse is up
             return;
-        event.target.style.backgroundColor = 'red';
+        colorTile(event);
     });
     element.addEventListener('click', (event) => {
-        event.target.style.backgroundColor = 'red';
+        colorTile(event);
     });
+}
+
+function colorTile(event) {
+    event.target.style.backgroundColor = 'red';
 }
 
 createGrid(16);
