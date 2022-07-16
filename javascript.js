@@ -1,5 +1,8 @@
 const container = document.querySelector('div.container')
-const tiles = [];
+const button = document.querySelector('button');
+button.onclick = changeSize;
+let tiles = [];
+createGrid(16);
 
 function createGrid(size) {
     for (let i = 0; i < size; i++) {
@@ -13,6 +16,20 @@ function createGrid(size) {
         tiles[i] = row;
         container.appendChild(row);
     }
+}
+
+function eraseGrid() {
+    for (let i = 0; i < tiles.length; i++) {
+        const row = tiles[i];
+        container.removeChild(row);
+    }
+    tiles = [];
+}
+
+function changeSize() {
+    const size = prompt('Enter new size', 10);
+    eraseGrid();
+    createGrid(size);
 }
 
 function addHoverEvent(element) {
@@ -29,5 +46,3 @@ function addHoverEvent(element) {
 function colorTile(event) {
     event.target.style.backgroundColor = 'red';
 }
-
-createGrid(16);
