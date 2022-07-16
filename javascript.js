@@ -1,17 +1,25 @@
 const container = document.querySelector('div.container')
+const tiles = [];
 
-const pixels = [];
 function createGrid(size) {
     for (let i = 0; i < size; i++) {
         const row = document.createElement('div');
         row.classList.add('row');
         for(let j = 0; j < size; j++) {
-            const pixel = document.createElement('div');
-            row.appendChild(pixel);
+            const tile = document.createElement('div');
+            addHoverEvent(tile);
+            row.appendChild(tile);
         }
-        pixels[i] = row;
+        tiles[i] = row;
         container.appendChild(row);
     }
 }
+
+function addHoverEvent(element) {
+    element.addEventListener('mouseover', (event) => {
+        event.target.style.backgroundColor = 'red';
+    })
+}
+
 
 createGrid(16);
