@@ -1,16 +1,17 @@
 const container = document.querySelector('div.container')
 
 const pixels = [];
-for (let i = 0; i < 16; i++) {
-    const row = document.createElement('div');
-    row.classList.add('row');
-    for (let j = 0; j < 16; j++) {
-        const pixel = document.createElement('div');
-        pixel.classList.add('square');
-        // pixel.textContent = `${i},${j}`;
-        row.appendChild(pixel);
+function createGrid(size) {
+    for (let i = 0; i < size; i++) {
+        const row = document.createElement('div');
+        row.classList.add('row');
+        for(let j = 0; j < size; j++) {
+            const pixel = document.createElement('div');
+            row.appendChild(pixel);
+        }
+        pixels[i] = row;
+        container.appendChild(row);
     }
-    pixels[i] = row;
-    container.appendChild(pixels[i])
 }
 
+createGrid(16);
